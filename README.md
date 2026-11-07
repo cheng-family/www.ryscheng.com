@@ -1,29 +1,44 @@
-# Next.js Static Export
+# www.ryscheng.com
 
-Next.js enables starting as a static site or Single-Page Application (SPA), then later optionally upgrading to use features that require a server.
+The ryscheng Inc. website, built with [Next.js](https://nextjs.org) (App Router) and React, and exported as a static site.
 
-When running `next build`, Next.js generates an HTML file per route. By breaking a strict SPA into individual HTML files, Next.js can avoid loading unnecessary JavaScript code on the client-side, reducing the bundle size and enabling faster page loads.
+## Structure
 
-Learn more: https://nextjs.org/docs/app/building-your-application/deploying/static-exports
-
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-static-export)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-static-export)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-static-export with-static-export-app
+```
+app/
+  layout.tsx          Root layout: fonts, metadata, Google Analytics
+  page.tsx            Home page
+  page.module.css     Page shell and base typography
+  home.css            Home-page global styles
+  about/page.tsx      /about
+components/
+  Hero.tsx            Full-bleed hero with background image
+  Newsletter.tsx      Newsletter section with the Substack embed
+lib/
+  config.ts           Environment configuration
+  fonts.ts            Montserrat + Playfair Display via next/font
+public/images/        Static image assets
 ```
 
-```bash
-yarn create next-app --example with-static-export with-static-export-app
-```
+Page copy is passed as props from `app/page.tsx`, so text changes happen there.
+
+## Development
 
 ```bash
-pnpm create next-app --example with-static-export with-static-export-app
+pnpm install
+pnpm dev
 ```
+
+## Configuration
+
+Copy `.env.local.example` to `.env.local` and set:
+
+- `NEXT_PUBLIC_GOOGLE_ANALYTICS_KEY`: Google Analytics measurement ID. Analytics is left out when it is empty.
+
+## Build
+
+```bash
+pnpm build
+```
+
+This writes the static site to `out/`. `pnpm start` builds and then serves `out/` locally.

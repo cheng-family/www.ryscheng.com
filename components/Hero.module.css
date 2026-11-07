@@ -1,0 +1,70 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Grow to fill the viewport alongside the sections below it. */
+  flex-grow: 1;
+  width: 100%;
+  padding: 8px;
+  background:
+    linear-gradient(#262626b8, #262626b8),
+    url("/images/hero-bg.jpg") top 50% left 50% / cover repeat;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: var(--container-width);
+  height: 80ch;
+  padding: 53px 0 79px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 859px;
+  padding: 8px;
+}
+
+.title {
+  width: 100%;
+  max-width: 800px;
+  margin: 0;
+  font-family: var(--font-playfair-display), serif;
+  font-size: 80px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: var(--color-white);
+  text-align: center;
+}
+
+.subtitle {
+  width: 100%;
+  max-width: 509px;
+  margin: 0;
+  font-size: 22px;
+  color: var(--color-white);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .inner {
+    height: auto;
+    padding-top: 59px;
+    padding-bottom: 74px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+}
