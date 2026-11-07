@@ -1,0 +1,4 @@
+/* Global styles for the home page only (imported from app/page.tsx). */
+body {
+  margin: 0;
+}
